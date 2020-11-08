@@ -1,0 +1,28 @@
+{
+  "name": "space-explorers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"nodemon --exec tsc --p tsconfig.game.json\" \"ts-node-dev --project tsconfig.server.json server/index.ts\"",
+    "build-game": "tsc --p tsconfig.game.json && uglifyjs --compress --output build/game/index.min.js -- build/game/index.js",
+    "build-server": "tsc --p tsconfig.server.json",
+    "build": "node build.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "phaser": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.8.3",
+    "uglify-js": "^3.9.3",
+    "fs-extra": "^9.0.1"
+  }
+}

@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "module": "system",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noUnusedLocals": true,
+        "preserveConstEnums": true,
+        "allowJs": true,
+        "sourceMap": false,
+        "outFile": "build/game/index.js",
+        "target": "es5",
+        "esModuleInterop": true
+    },
+    "include": [
+        "game/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

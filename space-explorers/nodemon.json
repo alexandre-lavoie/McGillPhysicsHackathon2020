@@ -1,0 +1,4 @@
+{
+    "watch": ["game"],
+    "ext": "ts"
+}

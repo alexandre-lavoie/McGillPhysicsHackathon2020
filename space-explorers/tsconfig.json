@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noUnusedLocals": true,
+        "preserveConstEnums": true,
+        "allowJs": true,
+        "sourceMap": false,
+        "outDir": "build/server",
+        "target": "es5",
+        "esModuleInterop": true,
+        "resolveJsonModule": true
+    },
+    "exclude": [
+        "node_modules",
+        "build"
+    ]
+}
