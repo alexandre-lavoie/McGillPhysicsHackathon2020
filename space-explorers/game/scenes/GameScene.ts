@@ -1,6 +1,4 @@
 class GameScene extends Phaser.Scene {
-    private mass: Mass;
-
     constructor() {
         super({
             active: true,

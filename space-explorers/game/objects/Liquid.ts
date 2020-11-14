@@ -1,6 +1,6 @@
 class Liquid extends Phaser.GameObjects.Graphics {
     public body: MatterJS.BodyType;
-    // private debugCircles: Phaser.GameObjects.Ellipse[];
+    private debugCircles: Phaser.GameObjects.Ellipse[];
 
     constructor(scene: Phaser.Scene, x: number, y: number, width: number, height: number, density: number) {
         super(scene);
@@ -11,9 +11,9 @@ class Liquid extends Phaser.GameObjects.Graphics {
             density
         });
 
-        // this.debugCircles = new Array(20).fill(0).map(() => new Phaser.GameObjects.Ellipse(scene, 0, 0, 10, 10, 0xFF00FF));
+        this.debugCircles = new Array(20).fill(0).map(() => new Phaser.GameObjects.Ellipse(scene, 0, 0, 10, 10, 0xFF00FF));
 
-        // this.debugCircles.forEach(c => this.scene.add.existing(c));
+        this.debugCircles.forEach(c => this.scene.add.existing(c));
 
         this.body.onCollideActiveCallback = (data: any) => this.applyBuoyancy(data);
 
@@ -62,6 +62,8 @@ class Liquid extends Phaser.GameObjects.Graphics {
         this.scene.matter.body.setVelocity(data.bodyA, { x: velocity.x + deltaVelocity.x, y: velocity.y + deltaVelocity.y });
 
         let submergedBodyCenterOfMass = this.getCenterOfMass(this.getSubmergedPolygon(data.bodyA));
+
+        this.debugCircles[19].setPosition(submergedBodyCenterOfMass.x, submergedBodyCenterOfMass.y);
 
         let bodyCenterOfMass = this.getCenterOfMass(data.bodyA.vertices);
 
@@ -169,7 +171,7 @@ class Liquid extends Phaser.GameObjects.Graphics {
 
         checkVertex(verticies[verticies.length - 1], verticies[0]);
 
-        // submergedVerticies.forEach((v, i) => this.debugCircles[i].setPosition(v.x, v.y))
+        submergedVerticies.forEach((v, i) => this.debugCircles[i].setPosition(v.x, v.y));
 
         return submergedVerticies;
     }
